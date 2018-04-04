@@ -1,19 +1,10 @@
 import mongoose = require("mongoose");
 import logger = require("./logger.lib");
 import config = require("./config.lib");
-import Schema = mongoose.Schema;
-import Model = mongoose.Model;
+import {Schema, Model} from "mongoose";
 
 export function connectToDB(): void {
-    // if (process.env.NODE_ENV === "dev") {
-
-
     mongoose.connect("mongodb://localhost:27017/ccdev");
-    // }
-
-    // if (process.env.NODE_ENV === "production") {
-    //   mongoose.connect("mongodb//localhost:27017/ccprod");
-    // }
   }
 
 export function createModel(name: string, schema: Schema, callback: any): void {
