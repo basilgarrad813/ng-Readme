@@ -1,6 +1,6 @@
 import mongoose = require("mongoose");
-import logger = require("./loggerLib");
-import config = require("./configLib");
+import logger = require("./logger.lib");
+import config = require("./config.lib");
 import Schema = mongoose.Schema;
 import Model = mongoose.Model;
 

@@ -1,6 +1,6 @@
 import mongoose = require("mongoose");
-import db = require("../lib/mongoLib");
-import logger = require("../lib/loggerLib");
+import db = require("../lib/mongo.lib");
+import logger = require("../lib/logger.lib");
 
 let schema: mongoose.Schema = mongoose.Schema;
 
