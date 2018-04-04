@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "types": [
+          "node",
+          "mocha",
+          "chai"
+        ]
+    },
+    "include": [
+      "./src/**/*.ts",
+      "./src/**/*.tsx"
+    ],
+    "exclude": [
+      "node_modules",
+      "./src/**/*.spec.ts"
+    ]
+}

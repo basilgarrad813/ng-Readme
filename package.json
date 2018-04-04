@@ -1,0 +1,32 @@
+{
+  "name": "ng-readme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "@types/node": "^7.0.59",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.12",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "typescript": "^2.8.1",
+    "winston": "^2.4.1"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.7.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basilgarrad813/ng-Readme.git"
+  },
+  "author": "Ryan Davidson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/basilgarrad813/ng-Readme/issues"
+  },
+  "homepage": "https://github.com/basilgarrad813/ng-Readme#readme"
+}
