@@ -1,22 +1,28 @@
-import winston = require("winston");
 import fs = require("fs");
 
-const logDir: string = "../logs";
+import * as winston from "winston";
+
+const logDir: string = process.cwd() + "/logs";
 const tsFormat: string = new Date().toLocaleTimeString();
 
-export function log(logData: string): void {
-  // create the log directory if it does not exist
+export const log: winston.Logger = new winston.Logger({
+  level: "info",
+  format: tsFormat,
+  transports: [
+    new winston.transports.File({name: "allLog", filename: `${logDir}/api.log`}),
+    new winston.transports.File({ name: "errorLog", filename: `${logDir}/api.error.log`, level: "error"})
+  ]
+});
+
+export function init(): void {
+
   if (!fs.existsSync(logDir)) {
     fs.mkdirSync(logDir);
   }
-  // create logger
-  let log: winston.Logger = new winston.Logger({
-    transports: [
-      new winston.transports.File({
-        filename: `${logDir}/server.log`,
-        level: process.env.NODE_ENV === "dev" ? "debug" : "info",
-        timestamp: tsFormat
-      })
-    ]
-  });
+
+  // if (process.env.NODE_ENV !== "prod") {
+  //   logger.add(new winston.transports.Console({
+  //     format: tsFormat
+  //   }));
+  // }
 }

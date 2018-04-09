@@ -1,7 +1,8 @@
 import mongoose = require("mongoose");
-import db = require("../lib/mongo.lib");
+import mongoLib = require("../lib/mongo.lib");
 import logger = require("../lib/logger.lib");
 import {Schema, Model} from "mongoose";
+import {level} from "winston";
 
 export class User {
   public userSchema: Schema;
@@ -31,10 +32,10 @@ export class User {
 
   }
   getModel(callback: any): void {
-    db.createModel("Users", this.userSchema, callback);
+    mongoLib.createModel("Users", this.userSchema, callback);
   }
   createUser(userModel: Model, userObject: string, callback: any): void {
-    db.createDocument(userModel, userObject, function(result: any): any {
+    mongoLib.createDocument(userModel, userObject, function(result: any): any {
       if (result instanceof Error) {
         this.handleError("Failed to create user", callback); // used this because it didn't find the function without it for some reason
       } else {
@@ -45,7 +46,7 @@ export class User {
 
   handleError(message: any, callback: any): void {
     let error: Error = new Error(message);
-    logger.log(message);
+    logger.log.error(message);
     callback(error);
   }
 }

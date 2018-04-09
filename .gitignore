@@ -61,3 +61,6 @@ typings/
 #code workspace file
 .code-workspace
 
+#gulpfile
+gulpfile.js
+
